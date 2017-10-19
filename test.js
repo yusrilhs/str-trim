@@ -1,3 +1,5 @@
+'use strict';
+
 let chai = require('chai'), 
     should = chai.should();
 
