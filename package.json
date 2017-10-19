@@ -1,6 +1,6 @@
 {
   "name": "str-trim",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "String polyfill for trim whitespace or other character",
   "main": "index.js",
   "scripts": {
