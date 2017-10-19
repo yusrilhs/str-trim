@@ -1,11 +1,17 @@
+[![Travis](https://img.shields.io/travis/yusrilhs/str-trim.svg)]()
+[![GitHub tag](https://img.shields.io/github/tag/yusrilhs/str-trim.svg)]()
+[![npm](https://img.shields.io/npm/v/str-trim.svg)]()
+
 # str-trim
 This library is String polyfill for trim whitespace, tab, new line or any character.
 
 ## Installation
 Using npm
+
 `npm install str-trim --save`
 
 Using yarn
+
 `yarn add str-trim`
 
 
@@ -15,40 +21,40 @@ Using yarn
 require('str-trim');
 
 // Trim
-'  hello  '.trim(); // hello
-'\n\nhello\n\n'.trim(); // hello
-'\t\thello\t\t'.trim(); // hello
-'\t\nhello\t\n'.trim(); // hello
-' \t\nhello\t\n '.trim(); // hello
+'  hello  '.trim();                 // hello
+'\n\nhello\n\n'.trim();             // hello
+'\t\thello\t\t'.trim();             // hello
+'\t\nhello\t\n'.trim();             // hello
+' \t\nhello\t\n '.trim();           // hello
 
 // Trim any character
-'__hello__'.trim('_'); // hello
-'_-hello-_'.trim('_-'); // hello
-'_-\nhello\n-_'.trim('_-'); // \nhello\n
+'__hello__'.trim('_');              // hello
+'_-hello-_'.trim('_-');             // hello
+'_-\nhello\n-_'.trim('_-');         // \nhello\n
 
 // Left trim
-'  hello  '.leftTrim(); // hello  
-'\n\nhello\n\n'.leftTrim(); // hello\n\n
-'\t\thello\t\t'.leftTrim(); // hello\t\t
-'\t\nhello\t\n'.leftTrim(); // hello\t\n
-' \t\nhello\t\n '.leftTrim(); // hello\t\n 
+'  hello  '.leftTrim();             // hello  
+'\n\nhello\n\n'.leftTrim();         // hello\n\n
+'\t\thello\t\t'.leftTrim();         // hello\t\t
+'\t\nhello\t\n'.leftTrim();         // hello\t\n
+' \t\nhello\t\n '.leftTrim();       // hello\t\n 
 
 // Left trim any character
-'__hello__'.leftTrim('_'); // hello__
-'_-hello-_'.leftTrim('_-'); // hello-_
-'_-\nhello\n-_'.leftTrim('_-'); // \nhello\n-_
+'__hello__'.leftTrim('_');          // hello__
+'_-hello-_'.leftTrim('_-');         // hello-_
+'_-\nhello\n-_'.leftTrim('_-');     // \nhello\n-_
 
 // Right trim
-'  hello  '.rightTrim(); //   hello
-'\n\nhello\n\n'.rightTrim(); // \n\nhello
-'\t\thello\t\t'.rightTrim(); // \t\thello
-'\t\nhello\t\n'.rightTrim(); // \t\nhello
-' \t\nhello\t\n '.rightTrim(); //  \t\nhello
+'  hello  '.rightTrim();            //   hello
+'\n\nhello\n\n'.rightTrim();        // \n\nhello
+'\t\thello\t\t'.rightTrim();        // \t\thello
+'\t\nhello\t\n'.rightTrim();        // \t\nhello
+' \t\nhello\t\n '.rightTrim();      //  \t\nhello
 
 // Right trim any character
-'__hello__'.rightTrim('_'); // __hello
-'_-hello-_'.rightTrim('_-'); // _-hello
-'_-\nhello\n-_'.rightTrim('_-'); // _-\nhello\n
+'__hello__'.rightTrim('_');         // __hello
+'_-hello-_'.rightTrim('_-');        // _-hello
+'_-\nhello\n-_'.rightTrim('_-');    // _-\nhello\n
 ```
 
 ## License
