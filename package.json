@@ -23,7 +23,8 @@
     "url": "https://github.com/yusrilhs/str-trim/issues"
   },
   "homepage": "https://github.com/yusrilhs/str-trim#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.0.1"
   }
