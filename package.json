@@ -1,0 +1,30 @@
+{
+  "name": "str-trim",
+  "version": "0.0.1",
+  "description": "String polyfill for trim whitespace or other character",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusrilhs/str-trim.git"
+  },
+  "keywords": [
+    "string",
+    "trim",
+    "lefttrim",
+    "righttrim",
+    "whitespace"
+  ],
+  "author": "Yusril Herlian Syah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yusrilhs/str-trim/issues"
+  },
+  "homepage": "https://github.com/yusrilhs/str-trim#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
