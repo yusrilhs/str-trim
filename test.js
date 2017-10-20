@@ -67,8 +67,6 @@ describe('Test String polyfill for trim character', function() {
             '\\\\hello//'.ltrim('\\/').should.to.equal('hello//');
             '_-hello-_'.ltrim('_-').should.to.equal('hello-_');
             '_-\nhello\n-_'.ltrim('_-').should.to.equal('\nhello\n-_');
-            
-            
         });
     });
 
