@@ -14,47 +14,82 @@ Using yarn
 
 `yarn add str-trim`
 
+## API
+* [trim](#trim)
+* [ltrim](#ltrim)
+* [rtrim](#rtrim)
 
-## How to use
+## Usage
+
+#### trim
 ```javascript
 
 require('str-trim');
 
 // Trim
-'  hello  '.trim();                 // hello
-'\n\nhello\n\n'.trim();             // hello
-'\t\thello\t\t'.trim();             // hello
-'\t\nhello\t\n'.trim();             // hello
-' \t\nhello\t\n '.trim();           // hello
+'  hello  '.trim();             // hello
+'\n\nhello\n\n'.trim();         // hello
+'\t\thello\t\t'.trim();         // hello
+'\t\nhello\t\n'.trim();         // hello
+' \t\nhello\t\n '.trim();       // hello
 
 // Trim any character
-'__hello__'.trim('_');              // hello
-'_-hello-_'.trim('_-');             // hello
-'_-\nhello\n-_'.trim('_-');         // \nhello\n
+'__hello__'.trim('_');          // hello
+'..hello..'.trim('.');          // hello
+'"hello"'.trim('"');            // hello
+'<hello>'.trim('<>');           // hello
+'((hello))'.trim('()');         // hello
+'[[hello]]'.trim('[]');         // hello
+'{{hello}}'.trim('{}');         // hello
+'\\\\hello//'.trim('\\/');      // hello
+'_-hello-_'.trim('_-');         // hello
+'_-\nhello\n-_'.trim('_-');     // \nhello\n
+```
+#### ltrim
+```javascript
+require('str-trim');
 
 // Left trim
-'  hello  '.leftTrim();             // hello  
-'\n\nhello\n\n'.leftTrim();         // hello\n\n
-'\t\thello\t\t'.leftTrim();         // hello\t\t
-'\t\nhello\t\n'.leftTrim();         // hello\t\n
-' \t\nhello\t\n '.leftTrim();       // hello\t\n 
+'  hello  '.ltrim();            // hello  
+'\n\nhello\n\n'.ltrim();        // hello\n\n
+'\t\thello\t\t'.ltrim();        // hello\t\t
+'\t\nhello\t\n'.ltrim();        // hello\t\n
+' \t\nhello\t\n '.ltrim();      // hello\t\n 
 
 // Left trim any character
-'__hello__'.leftTrim('_');          // hello__
-'_-hello-_'.leftTrim('_-');         // hello-_
-'_-\nhello\n-_'.leftTrim('_-');     // \nhello\n-_
+'__hello__'.ltrim('_');         // hello__
+'..hello..'.ltrim('.');         // hello..
+'"hello"'.ltrim('"');           // hello"
+'<hello>'.ltrim('<>');          // hello>
+'((hello))'.ltrim('()');        // hello))
+'[[hello]]'.ltrim('[]');        // hello]]
+'{{hello}}'.ltrim('{}');        // hello}}
+'\\\\hello//'.ltrim('\\/');     // hello//
+'_-hello-_'.ltrim('_-');        // hello-_
+'_-\nhello\n-_'.ltrim('_-');    // \nhello\n-_
+```
+#### rtrim
+```javascript
+require('str-trim');
 
 // Right trim
-'  hello  '.rightTrim();            //   hello
-'\n\nhello\n\n'.rightTrim();        // \n\nhello
-'\t\thello\t\t'.rightTrim();        // \t\thello
-'\t\nhello\t\n'.rightTrim();        // \t\nhello
-' \t\nhello\t\n '.rightTrim();      //  \t\nhello
+'  hello  '.rtrim();            //   hello
+'\n\nhello\n\n'.rtrim();        // \n\nhello
+'\t\thello\t\t'.rtrim();        // \t\thello
+'\t\nhello\t\n'.rtrim();        // \t\nhello
+' \t\nhello\t\n '.rtrim();      //  \t\nhello
 
 // Right trim any character
-'__hello__'.rightTrim('_');         // __hello
-'_-hello-_'.rightTrim('_-');        // _-hello
-'_-\nhello\n-_'.rightTrim('_-');    // _-\nhello\n
+'__hello__'.rtrim('_');         // __hello
+'..hello..'.rtrim('.');         // ..hello
+'"hello"'.rtrim('"');           // "hello
+'<hello>'.rtrim('<>');          // <hello
+'((hello))'.rtrim('()');        // ((hello
+'[[hello]]'.rtrim('[]');        // [[hello
+'{{hello}}'.rtrim('{}');        // {{hello
+'\\\\hello//'.rtrim('\\/');     // \\\\hello
+'_-hello-_'.rtrim('_-');        // _-hello
+'_-\nhello\n-_'.rtrim('_-');    // _-\nhello\n
 ```
 
 ## License
@@ -77,4 +112,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
+
 
