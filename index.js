@@ -11,40 +11,56 @@
 }(this, function () {
 
     /**
+     * Escape regex sepecial characters
+     * @param  {String} chars 
+     * @return {String}       
+     */
+    function escapeRegexChars(chars) {
+        return chars
+                .replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1')
+                .replace(/\x08/g, '\\x08');
+    };
+
+    /**
      * Trim Character on left and right
-     * @param  {String} char 
+     * @param  {String} chars 
      * @return {String}      
      */
-    String.prototype.trim = function(char) {
-        var pattern = (typeof char !== 'string') ? 
-                        /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g : 
-                        new RegExp('^['+ char +']+|['+ char +']+$', 'g');
+    String.prototype.trim = function(chars) {
+        var pattern;
+
+        if (typeof chars !== 'string') {
+            pattern = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+        } else {
+            chars = escapeRegexChars(chars);
+            pattern = new RegExp('^['+ chars +']+|['+ chars +']+$', 'g');
+        }
     
         return this.replace(pattern, '');
     };
 
     /**
      * Trim Character on left side
-     * @param  {String} char 
+     * @param  {String} chars 
      * @return {String}      
      */
-    String.prototype.leftTrim = function(char) {
-        var pattern = (typeof char !== 'string') ? 
+    String.prototype.ltrim = function(chars) {
+        var pattern = (typeof chars !== 'string') ? 
                         /^[\s\uFEFF\xA0]+/g : 
-                        new RegExp('^['+ char +']+', 'g');
+                        new RegExp('^['+ escapeRegexChars(chars) +']+', 'g');
 
         return this.replace(pattern, '');
     }
 
     /**
      * Trim Character on right side
-     * @param  {String} char 
+     * @param  {String} chars 
      * @return {String}      
      */
-    String.prototype.rightTrim = function(char) {
-        var pattern = (typeof char !== 'string') ? 
+    String.prototype.rtrim = function(chars) {
+        var pattern = (typeof chars !== 'string') ? 
                         /[\s\uFEFF\xA0]+$/g : 
-                        new RegExp('['+ char +']+$', 'g');
+                        new RegExp('['+ escapeRegexChars(chars) +']+$', 'g');
 
         return this.replace(pattern, '');
     }
