@@ -1,6 +1,6 @@
-[![Travis](https://img.shields.io/travis/yusrilhs/str-trim.svg)]()
-[![GitHub tag](https://img.shields.io/github/tag/yusrilhs/str-trim.svg)]()
-[![npm](https://img.shields.io/npm/v/str-trim.svg)]()
+[![Build Status](https://travis-ci.org/yusrilhs/str-trim.svg?branch=master)](https://travis-ci.org/yusrilhs/str-trim)
+[![GitHub version](https://badge.fury.io/gh/yusrilhs%2Fstr-trim.svg)](https://badge.fury.io/gh/yusrilhs%2Fstr-trim)
+[![npm version](https://badge.fury.io/js/str-trim.svg)](https://badge.fury.io/js/str-trim)
 
 # str-trim
 This library is String polyfill for trim whitespace, tab, new line or any character.
