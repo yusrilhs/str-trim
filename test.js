@@ -15,12 +15,12 @@ describe('Test String polyfill for trim character', function() {
             'hello'.trim.should.be.a('function');
         });
 
-        it('Should leftTrim is a function', function() {
-            'hello'.leftTrim.should.be.a('function');
+        it('Should ltrim is a function', function() {
+            'hello'.ltrim.should.be.a('function');
         });
 
-        it('Should rightTrim is a function', function() {
-            'hello'.rightTrim.should.be.a('function');
+        it('Should rtrim is a function', function() {
+            'hello'.rtrim.should.be.a('function');
         });
     });
 
@@ -35,40 +35,63 @@ describe('Test String polyfill for trim character', function() {
 
         it('Should return string without character defined at trim argument', function() {
             '__hello__'.trim('_').should.to.equal('hello');
+            '..hello..'.trim('.').should.to.equal('hello');
+            '"hello"'.trim('"').should.to.equal('hello');
+            '<hello>'.trim('<>').should.to.equal('hello');
+            '((hello))'.trim('()').should.to.equal('hello');
+            '[[hello]]'.trim('[]').should.to.equal('hello');
+            '{{hello}}'.trim('{}').should.to.equal('hello');
+            '\\\\hello//'.trim('\\/').should.to.equal('hello');
             '_-hello-_'.trim('_-').should.to.equal('hello');
             '_-\nhello\n-_'.trim('_-').should.to.equal('\nhello\n');
         });
     });
 
-    describe('Test String.prototype.leftTrim', function() {
+    describe('Test String.prototype.ltrim', function() {
         it('Should return string without whitespace, tab or new line on left side', function() {
-            '  hello  '.leftTrim().should.to.equal('hello  ');
-            '\n\nhello\n\n'.leftTrim().should.to.equal('hello\n\n');
-            '\t\thello\t\t'.leftTrim().should.to.equal('hello\t\t');
-            '\t\nhello\t\n'.leftTrim().should.to.equal('hello\t\n');
-            ' \t\nhello\t\n '.leftTrim().should.to.equal('hello\t\n ');
+            '  hello  '.ltrim().should.to.equal('hello  ');
+            '\n\nhello\n\n'.ltrim().should.to.equal('hello\n\n');
+            '\t\thello\t\t'.ltrim().should.to.equal('hello\t\t');
+            '\t\nhello\t\n'.ltrim().should.to.equal('hello\t\n');
+            ' \t\nhello\t\n '.ltrim().should.to.equal('hello\t\n ');
         });
 
-        it('Should return string without character defined at trim argument on left side', function() {
-            '__hello__'.leftTrim('_').should.to.equal('hello__');
-            '_-hello-_'.leftTrim('_-').should.to.equal('hello-_');
-            '_-\nhello\n-_'.leftTrim('_-').should.to.equal('\nhello\n-_');
+        it('Should return string without character defined at ltrim argument on left side', function() {
+            '__hello__'.ltrim('_').should.to.equal('hello__');
+            '..hello..'.ltrim('.').should.to.equal('hello..');
+            '"hello"'.ltrim('"').should.to.equal('hello"');
+            '<hello>'.ltrim('<>').should.to.equal('hello>');
+            '((hello))'.ltrim('()').should.to.equal('hello))');
+            '[[hello]]'.ltrim('[]').should.to.equal('hello]]');
+            '{{hello}}'.ltrim('{}').should.to.equal('hello}}');
+            '\\\\hello//'.ltrim('\\/').should.to.equal('hello//');
+            '_-hello-_'.ltrim('_-').should.to.equal('hello-_');
+            '_-\nhello\n-_'.ltrim('_-').should.to.equal('\nhello\n-_');
+            
+            
         });
     });
 
-    describe('Test String.prototype.rightTrim', function() {
+    describe('Test String.prototype.rtrim', function() {
         it('Should return string without whitespace, tab or new line', function() {
-            '  hello  '.rightTrim().should.to.equal('  hello');
-            '\n\nhello\n\n'.rightTrim().should.to.equal('\n\nhello');
-            '\t\thello\t\t'.rightTrim().should.to.equal('\t\thello');
-            '\t\nhello\t\n'.rightTrim().should.to.equal('\t\nhello');
-            ' \t\nhello\t\n '.rightTrim().should.to.equal(' \t\nhello');
+            '  hello  '.rtrim().should.to.equal('  hello');
+            '\n\nhello\n\n'.rtrim().should.to.equal('\n\nhello');
+            '\t\thello\t\t'.rtrim().should.to.equal('\t\thello');
+            '\t\nhello\t\n'.rtrim().should.to.equal('\t\nhello');
+            ' \t\nhello\t\n '.rtrim().should.to.equal(' \t\nhello');
         });
 
-        it('Should return string without character defined at trim argument', function() {
-            '__hello__'.rightTrim('_').should.to.equal('__hello');
-            '_-hello-_'.rightTrim('_-').should.to.equal('_-hello');
-            '_-\nhello\n-_'.rightTrim('_-').should.to.equal('_-\nhello\n');
+        it('Should return string without character defined at rtrim argument on right side', function() {
+            '__hello__'.rtrim('_').should.to.equal('__hello');
+            '..hello..'.rtrim('.').should.to.equal('..hello');
+            '"hello"'.rtrim('"').should.to.equal('"hello');
+            '<hello>'.rtrim('<>').should.to.equal('<hello');
+            '((hello))'.rtrim('()').should.to.equal('((hello');
+            '[[hello]]'.rtrim('[]').should.to.equal('[[hello');
+            '{{hello}}'.rtrim('{}').should.to.equal('{{hello');
+            '\\\\hello//'.rtrim('\\/').should.to.equal('\\\\hello');
+            '_-hello-_'.rtrim('_-').should.to.equal('_-hello');
+            '_-\nhello\n-_'.rtrim('_-').should.to.equal('_-\nhello\n');
         });
     });
 });
