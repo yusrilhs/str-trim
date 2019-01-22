@@ -1,10 +1,10 @@
 'use strict';
 
-let chai = require('chai'), 
+let chai = require('chai'),
     should = chai.should();
 
 describe('Test String polyfill for trim character', function() {
-    
+
     before(function() {
         // Register polyfill
         require('./index.js');
@@ -37,13 +37,15 @@ describe('Test String polyfill for trim character', function() {
             '__hello__'.trim('_').should.to.equal('hello');
             '..hello..'.trim('.').should.to.equal('hello');
             '"hello"'.trim('"').should.to.equal('hello');
-            '<hello>'.trim('<>').should.to.equal('hello');
-            '((hello))'.trim('()').should.to.equal('hello');
-            '[[hello]]'.trim('[]').should.to.equal('hello');
-            '{{hello}}'.trim('{}').should.to.equal('hello');
-            '\\\\hello//'.trim('\\/').should.to.equal('hello');
-            '_-hello-_'.trim('_-').should.to.equal('hello');
-            '_-\nhello\n-_'.trim('_-').should.to.equal('\nhello\n');
+            '<hello>'.trim('<').trim('>').should.to.equal('hello');
+            '((hello))'.trim('(').trim(')').should.to.equal('hello');
+            '[[hello]]'.trim('[').trim(']').should.to.equal('hello');
+            '{{hello}}'.trim('{').trim('}').should.to.equal('hello');
+            '\\\\hello//'.trim('\\').trim('/').should.to.equal('hello');
+            '_-hello-_'.trim('_').trim('-').should.to.equal('hello');
+            '_-\nhello\n-_'.trim('_').trim('-').should.to.equal('\nhello\n');
+            '/hello/'.trim('/').should.to.equal('hello');
+            '/ hello/ '.trim('/ ').should.to.equal('hello');
         });
     });
 
@@ -60,13 +62,15 @@ describe('Test String polyfill for trim character', function() {
             '__hello__'.ltrim('_').should.to.equal('hello__');
             '..hello..'.ltrim('.').should.to.equal('hello..');
             '"hello"'.ltrim('"').should.to.equal('hello"');
-            '<hello>'.ltrim('<>').should.to.equal('hello>');
-            '((hello))'.ltrim('()').should.to.equal('hello))');
-            '[[hello]]'.ltrim('[]').should.to.equal('hello]]');
-            '{{hello}}'.ltrim('{}').should.to.equal('hello}}');
-            '\\\\hello//'.ltrim('\\/').should.to.equal('hello//');
+            '<hello>'.ltrim('<').should.to.equal('hello>');
+            '((hello))'.ltrim('(').should.to.equal('hello))');
+            '[[hello]]'.ltrim('[').should.to.equal('hello]]');
+            '{{hello}}'.ltrim('{').should.to.equal('hello}}');
+            '\\\\hello//'.ltrim('\\').should.to.equal('hello//');
             '_-hello-_'.ltrim('_-').should.to.equal('hello-_');
             '_-\nhello\n-_'.ltrim('_-').should.to.equal('\nhello\n-_');
+            '/hello'.trim('/').should.to.equal('hello');
+            '/ hello'.trim('/ ').should.to.equal('hello');
         });
     });
 
@@ -83,13 +87,15 @@ describe('Test String polyfill for trim character', function() {
             '__hello__'.rtrim('_').should.to.equal('__hello');
             '..hello..'.rtrim('.').should.to.equal('..hello');
             '"hello"'.rtrim('"').should.to.equal('"hello');
-            '<hello>'.rtrim('<>').should.to.equal('<hello');
-            '((hello))'.rtrim('()').should.to.equal('((hello');
-            '[[hello]]'.rtrim('[]').should.to.equal('[[hello');
-            '{{hello}}'.rtrim('{}').should.to.equal('{{hello');
-            '\\\\hello//'.rtrim('\\/').should.to.equal('\\\\hello');
-            '_-hello-_'.rtrim('_-').should.to.equal('_-hello');
-            '_-\nhello\n-_'.rtrim('_-').should.to.equal('_-\nhello\n');
+            '<hello>'.rtrim('>').should.to.equal('<hello');
+            '((hello))'.rtrim(')').should.to.equal('((hello');
+            '[[hello]]'.rtrim(']').should.to.equal('[[hello');
+            '{{hello}}'.rtrim('}').should.to.equal('{{hello');
+            '\\\\hello//'.rtrim('/').should.to.equal('\\\\hello');
+            '_-hello-_'.rtrim('-_').should.to.equal('_-hello');
+            '_-\nhello\n-_'.rtrim('-_').should.to.equal('_-\nhello\n');
+            'hello/'.trim('/').should.to.equal('hello');
+            'hello/ '.trim('/ ').should.to.equal('hello');
         });
     });
 });
