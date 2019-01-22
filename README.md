@@ -37,34 +37,34 @@ require('str-trim');
 '__hello__'.trim('_');          // hello
 '..hello..'.trim('.');          // hello
 '"hello"'.trim('"');            // hello
-'<hello>'.trim('<>');           // hello
-'((hello))'.trim('()');         // hello
-'[[hello]]'.trim('[]');         // hello
-'{{hello}}'.trim('{}');         // hello
-'\\\\hello//'.trim('\\/');      // hello
-'_-hello-_'.trim('_-');         // hello
-'_-\nhello\n-_'.trim('_-');     // \nhello\n
+'<hello>'.trim('<').trim('>');           // hello
+'((hello))'.trim('(').trim(')');         // hello
+'[[hello]]'.trim('[').trim(']');         // hello
+'{{hello}}'.trim('{').trim('}');         // hello
+'\\\\hello//'.trim('\\').trim('/');      // hello
+'_-hello-_'.trim('_-').trim('-_');         // hello
+'_-\nhello\n-_'.trim('_-').trim('-_');     // \nhello\n
 ```
 #### ltrim
 ```javascript
 require('str-trim');
 
 // Left trim
-'  hello  '.ltrim();            // hello  
+'  hello  '.ltrim();            // hello
 '\n\nhello\n\n'.ltrim();        // hello\n\n
 '\t\thello\t\t'.ltrim();        // hello\t\t
 '\t\nhello\t\n'.ltrim();        // hello\t\n
-' \t\nhello\t\n '.ltrim();      // hello\t\n 
+' \t\nhello\t\n '.ltrim();      // hello\t\n
 
 // Left trim any character
 '__hello__'.ltrim('_');         // hello__
 '..hello..'.ltrim('.');         // hello..
 '"hello"'.ltrim('"');           // hello"
-'<hello>'.ltrim('<>');          // hello>
-'((hello))'.ltrim('()');        // hello))
-'[[hello]]'.ltrim('[]');        // hello]]
-'{{hello}}'.ltrim('{}');        // hello}}
-'\\\\hello//'.ltrim('\\/');     // hello//
+'<hello>'.ltrim('<');          // hello>
+'((hello))'.ltrim('(');        // hello))
+'[[hello]]'.ltrim('[');        // hello]]
+'{{hello}}'.ltrim('{');        // hello}}
+'\\\\hello//'.ltrim('\\');     // hello//
 '_-hello-_'.ltrim('_-');        // hello-_
 '_-\nhello\n-_'.ltrim('_-');    // \nhello\n-_
 ```
@@ -83,13 +83,13 @@ require('str-trim');
 '__hello__'.rtrim('_');         // __hello
 '..hello..'.rtrim('.');         // ..hello
 '"hello"'.rtrim('"');           // "hello
-'<hello>'.rtrim('<>');          // <hello
-'((hello))'.rtrim('()');        // ((hello
-'[[hello]]'.rtrim('[]');        // [[hello
-'{{hello}}'.rtrim('{}');        // {{hello
-'\\\\hello//'.rtrim('\\/');     // \\\\hello
-'_-hello-_'.rtrim('_-');        // _-hello
-'_-\nhello\n-_'.rtrim('_-');    // _-\nhello\n
+'<hello>'.rtrim('>');          // <hello
+'((hello))'.rtrim(')');        // ((hello
+'[[hello]]'.rtrim(']');        // [[hello
+'{{hello}}'.rtrim('}');        // {{hello
+'\\\\hello//'.rtrim('/');     // \\\\hello
+'_-hello-_'.rtrim('-_');        // _-hello
+'_-\nhello\n-_'.rtrim('-_');    // _-\nhello\n
 ```
 
 ## License
